@@ -4,6 +4,7 @@
 using namespace std;
 #define H 20
 #define W 15
+#define ll long long 
 char board[H][W] = {} ;
 char blocks[][4][4] = {
         {{' ','I',' ',' '},
