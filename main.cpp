@@ -1,9 +1,10 @@
-#include <iostream>
+﻿#include <iostream>
 #include <conio.h>
 #include <windows.h>
 using namespace std;
 #define H 20
 #define W 15
+int speed = 200;//Tốc độ ban đầu
 char board[H][W] = {} ;
 char blocks[][4][4] = {
         {{' ','I',' ',' '},
@@ -121,6 +122,7 @@ void removeLine(){
             for (int ii = i; ii >0 ; ii-- )
                 for (int j = 0; j < W-1 ; j++ ) board[ii][j] = board[ii-1][j];
             i++;
+            if (speed > 50) speed -= 20;
             draw();
             _sleep(200);
         }
@@ -150,7 +152,7 @@ int main()
         }
         block2Board();
         draw();
-        _sleep(200);
+        Sleep(speed);
     }
     return 0;
 }
