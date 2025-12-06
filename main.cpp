@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <conio.h>
 #include <windows.h>
 using namespace std;
@@ -131,6 +131,12 @@ void removeLine()
                 for (int j = 1; j < W - 1; j++)
                     board[k][j] = board[k - 1][j];
             i++;
+removeLine
+
+            if (speed > 50) speed -= 20;
+            draw();
+            _sleep(200);
+main
         }
     }
 }
