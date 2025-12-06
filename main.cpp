@@ -1,9 +1,10 @@
-#include <iostream>
+﻿#include <iostream>
 #include <conio.h>
 #include <windows.h>
 using namespace std;
 #define H 20
 #define W 15
+int speed = 200;   //Tốc độ ban đầu
 char board[H][W] = {} ;
 char blocks[][4][4] = {
         {{' ','I',' ',' '},
@@ -112,17 +113,24 @@ bool canMove(int dx, int dy){
             }
     return true;
 }
-void removeLine(){
-    int j;
-    for (int i = H-2; i >0 ; i-- ){
-        for (j = 0; j < W-1 ; j++)
-            if (board[i][j] == ' ') break;
-        if (j == W-1){
-            for (int ii = i; ii >0 ; ii-- )
-                for (int j = 0; j < W-1 ; j++ ) board[ii][j] = board[ii-1][j];
+
+void removeLine() 
+{
+    for (int i = H - 2; i >= 1; i--) 
+    {
+        bool full = true;
+        for (int j = 1; j < W - 1; j++)
+            if (board[i][j] == ' ') 
+            { 
+                full = false; break; 
+            }
+
+        if (full) 
+        {
+            for (int k = i; k > 0; k--)
+                for (int j = 1; j < W - 1; j++)
+                    board[k][j] = board[k - 1][j];
             i++;
-            draw();
-            _sleep(200);
         }
     }
 }
@@ -150,7 +158,7 @@ int main()
         }
         block2Board();
         draw();
-        _sleep(200);
+        Sleep(speed);
     }
     return 0;
 }
