@@ -1,0 +1,17 @@
+
+*.exe
+*.o
+*.obj
+*.dll
+.vscode/
+.vs/
+*.log
+*.idb
+*.pdb
+*.tlog
+
+*.depend
+*.layout
+*.cbp.USER
+bin/
+obj/
